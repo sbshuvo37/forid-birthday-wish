@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Dua For You</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <style>
+        :root {
+            --green: #071d19;
+            --green2: #103b30;
+            --gold: #d9bb78;
+            --gold-light: #f4e5b8;
+            --white: #fff9ed;
+            --muted: #c4d0c5;
+            --card-max-width: 900px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100svh;
+            background:
+                radial-gradient(circle at 20% 15%, #24503b 0%, transparent 35%),
+                radial-gradient(circle at 90% 90%, #463b24 0%, transparent 30%),
+                linear-gradient(135deg, #061713, #0b2922, #071b17);
+            color: var(--white);
+            font-family: 'Hind Siliguri', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Background stars */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            color: var(--gold);
+            animation: twinkle 3s infinite ease-in-out;
+            opacity: .5;
+        }
+
+        .star:nth-child(1) { top: 12%; left: 15%; }
+        .star:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .star:nth-child(3) { bottom: 20%; left: 12%; animation-delay: 2s; }
+        .star:nth-child(4) { bottom: 15%; right: 18%; animation-delay: .5s; }
+        .star:nth-child(5) { top: 50%; left: 7%; animation-delay: 1.5s; }
+        .star:nth-child(6) { top: 55%; right: 8%; animation-delay: .8s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: .2; transform: scale(.8); }
+            50% { opacity: .9; transform: scale(1.3); }
+        }
+
+        /* Main layout */
+        .container {
+            min-height: 100vh;
+            min-height: 100svh;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(16px, 3vh, 28px) clamp(14px, 4vw, 24px);
+        }
+
+        .topbar {
+            width: 100%;
+            max-width: var(--card-max-width);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: clamp(14px, 2.2vh, 24px);
+            padding: 0 4px;
+        }
+
+        .logo {
+            color: var(--gold);
+            letter-spacing: clamp(1px, .3vw, 2px);
+            font-size: clamp(11px, 2.4vw, 13px);
+            font-weight: 500;
+        }
+
+        .step {
+            color: var(--muted);
+            font-size: clamp(11px, 2.4vw, 13px);
+            white-space: nowrap;
+        }
+
+        /* Card (Enlarged & Elegantly Proportioned) */
+        .card {
+            width: 100%;
+            max-width: var(--card-max-width);
+            min-height: clamp(610px, 74vh, 720px);
+            background: linear-gradient(145deg,
+                    rgba(20, 65, 51, .95),
+                    rgba(5, 27, 23, .97));
+            border: 1px solid rgba(217, 187, 120, .38);
+            border-radius: 28px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .45),
+                        0 0 30px rgba(217, 187, 120, .08);
+            padding: clamp(34px, 5vw, 55px) clamp(22px, 5vw, 48px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: min-height .3s ease;
+        }
+
+        .card::before,
+        .card::after {
+            content: "✧";
+            position: absolute;
+            color: rgba(217, 187, 120, .18);
+            font-size: clamp(60px, 10vw, 100px);
+            pointer-events: none;
+        }
+
+        .card::before {
+            top: -20px;
+            left: 15px;
+        }
+
+        .card::after {
+            bottom: -20px;
+            right: 15px;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            animation: fadeIn .5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-size: clamp(11px, 2vw, 13px);
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        h1, h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: var(--gold-light);
+            line-height: 1.25;
+        }
+
+        h1 {
+            font-size: clamp(38px, 6.5vw, 62px);
+        }
+
+        h2 {
+            font-size: clamp(26px, 4.5vw, 42px);
+            margin-bottom: 20px;
+        }
+
+        .bn-title {
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: clamp(30px, 5.5vw, 46px);
+            font-weight: 600;
+            line-height: 1.35;
+            color: var(--gold-light);
+        }
+
+        .friend-name {
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: clamp(17px, 3vw, 21px);
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        .description {
+            font-size: clamp(15px, 2vw, 17.5px);
+            line-height: 2;
+            color: var(--muted);
+            margin-top: 18px;
+            white-space: pre-line;
+        }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+            margin: 24px auto;
+            opacity: .75;
+        }
+
+        /* Moon */
+        .moon {
+            width: 95px;
+            height: 95px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            margin: 0 auto 28px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(217, 187, 120, .35);
+        }
+
+        .moon::after {
+            content: "";
+            width: 86px;
+            height: 86px;
+            position: absolute;
+            background: #174033;
+            border-radius: 50%;
+            top: -12px;
+            left: 26px;
+        }
+
+        /* Quran & Hadith */
+        .arabic {
+            font-family: "Times New Roman", serif;
+            font-size: clamp(26px, 4.8vw, 38px);
+            direction: rtl;
+            line-height: 2;
+            color: var(--gold-light);
+            margin: 18px auto;
+            max-width: 100%;
+        }
+
+        .translation {
+            color: var(--white);
+            font-size: clamp(16px, 2.2vw, 18.5px);
+            line-height: 1.9;
+        }
+
+        .reference {
+            color: var(--gold);
+            font-size: clamp(12px, 2vw, 13.5px);
+            letter-spacing: 2px;
+            margin-top: 18px;
+        }
+
+        .message {
+            background: rgba(0, 0, 0, .2);
+            border: 1px solid rgba(217, 187, 120, .25);
+            padding: 18px 22px;
+            border-radius: 16px;
+            color: var(--muted);
+            font-size: clamp(14px, 2vw, 15.5px);
+            line-height: 1.9;
+            margin-top: 22px;
+        }
+
+        /* ===== PHOTO GALLERY (ENLARGED & UNCROPPED) ===== */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            width: 100%;
+            max-width: 740px;
+            margin: 20px auto 4px;
+        }
+
+        /* Photo 1 (Landscape shot): Featured hero banner across the top */
+        .photo-item:nth-child(1) {
+            grid-column: 1 / -1;
+            height: 275px;
+        }
+
+        .photo-item:nth-child(1) img {
+            object-position: center 25%;
+        }
+
+        /* Photos 2, 3, 4, 5 (Portraits): 4 columns side by side */
+        .photo-item:nth-child(2),
+        .photo-item:nth-child(3),
+        .photo-item:nth-child(4),
+        .photo-item:nth-child(5) {
+            grid-column: span 1;
+            height: 200px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border: 1.5px solid rgba(217, 187, 120, .45);
+            border-radius: 16px;
+            background: rgba(0, 0, 0, .3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+            cursor: pointer;
+            transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--gold-light);
+            box-shadow: 0 12px 30px rgba(217, 187, 120, .3);
+        }
+
+        .photo-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            transition: transform .4s ease, filter .3s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-placeholder {
+            display: none;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        /* ===== LIGHTBOX MODAL ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(4, 18, 14, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 92vw;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: zoomIn .3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 78vh;
+            border-radius: 18px;
+            border: 1.5px solid rgba(217, 187, 120, .5);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .8);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -44px;
+            right: 0;
+            background: rgba(255, 255, 255, .15);
+            border: 1px solid rgba(217, 187, 120, .6);
+            color: var(--gold-light);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background .2s, transform .2s;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(217, 187, 120, .35);
+            transform: scale(1.08);
+        }
+
+        .lightbox-caption {
+            color: var(--gold);
+            font-size: 14px;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* Navigation */
+        .navigation {
+            width: 100%;
+            max-width: var(--card-max-width);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: clamp(14px, 2.2vh, 24px);
+            gap: 15px;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: 'Hind Siliguri', sans-serif;
+            transition: .25s ease;
+        }
+
+        .next {
+            background: linear-gradient(120deg, #f0dba4, #c6a35c);
+            color: #10251c;
+            border: none;
+            padding: 13px 32px;
+            border-radius: 50px;
+            font-size: 15.5px;
+            font-weight: 600;
+            box-shadow: 0 4px 18px rgba(217, 187, 120, .2);
+        }
+
+        .next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217, 187, 120, .35);
+        }
+
+        .next:active {
+            transform: translateY(0);
+        }
+
+        .back {
+            background: transparent;
+            border: 1px solid rgba(217, 187, 120, .45);
+            color: var(--white);
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-size: 14.5px;
+        }
+
+        .back:hover {
+            background: rgba(255, 255, 255, .08);
+            border-color: var(--gold);
+        }
+
+        button:disabled {
+            opacity: .25;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Progress */
+        .progress-area {
+            width: 100%;
+            max-width: var(--card-max-width);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: clamp(12px, 1.8vh, 20px);
+        }
+
+        .progress {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, .15);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 8.33%;
+            background: var(--gold);
+            transition: width .4s ease;
+        }
+
+        .counter {
+            color: var(--muted);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .footer {
+            margin-top: clamp(14px, 2vh, 24px);
+            color: #8fa397;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-align: center;
+            max-width: var(--card-max-width);
+        }
+
+        /* ========================================================
+           RESPONSIVE DESIGN (MAINLY PHONE RESPONSIVE FOCUS)
+        ======================================================== */
+
+        @media (max-width: 680px) {
+            .container {
+                padding: 12px 12px 20px;
+                justify-content: flex-start;
+            }
+
+            .topbar {
+                margin-bottom: 12px;
+            }
+
+            .card {
+                width: 100%;
+                min-height: clamp(560px, 80svh, 750px);
+                height: auto;
+                padding: 22px 14px 18px;
+                border-radius: 22px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .card::before,
+            .card::after {
+                font-size: 60px;
+            }
+
+            .content {
+                max-height: 100%;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: auto 0;
+                padding: 4px 6px;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(217, 187, 120, .3) transparent;
+            }
+
+            .content::-webkit-scrollbar {
+                width: 3px;
+            }
+
+            .content::-webkit-scrollbar-thumb {
+                background: rgba(217, 187, 120, .35);
+                border-radius: 10px;
+            }
+
+            .bn-title {
+                font-size: clamp(28px, 7.5vw, 38px);
+            }
+
+            h2 {
+                font-size: clamp(23px, 6vw, 32px);
+                margin-bottom: 16px;
+            }
+
+            .description {
+                font-size: 15px;
+                line-height: 1.85;
+            }
+
+            .arabic {
+                font-size: clamp(23px, 6.5vw, 31px);
+                line-height: 1.85;
+            }
+
+            .translation {
+                font-size: 15.5px;
+                line-height: 1.8;
+            }
+
+            .message {
+                padding: 14px 14px;
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            /* Mobile Photo Gallery: 2 Columns */
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                margin-top: 10px;
+            }
+
+            .photo-item:nth-child(1) {
+                grid-column: 1 / -1;
+                height: 195px;
+            }
+
+            .photo-item:nth-child(2),
+            .photo-item:nth-child(3),
+            .photo-item:nth-child(4),
+            .photo-item:nth-child(5) {
+                grid-column: span 1;
+                height: 145px;
+            }
+
+            .navigation {
+                margin-top: 16px;
+                gap: 10px;
+            }
+
+            .next {
+                padding: 12px 22px;
+                font-size: 14.5px;
+                min-height: 46px;
+            }
+
+            .back {
+                padding: 11px 18px;
+                font-size: 13.5px;
+                min-height: 46px;
+            }
+
+            .footer {
+                font-size: 9.5px;
+                letter-spacing: 1px;
+                margin-top: 16px;
+            }
+        }
+
+        /* Small Phones (iPhone SE, Galaxy Fold, etc.) */
+        @media (max-width: 380px) {
+            .card {
+                padding: 18px 10px;
+                min-height: 490px;
+            }
+
+            .photo-gallery {
+                gap: 6px;
+            }
+
+            .photo-item:nth-child(1) {
+                height: 175px;
+            }
+
+            .photo-item:nth-child(2),
+            .photo-item:nth-child(3),
+            .photo-item:nth-child(4),
+            .photo-item:nth-child(5) {
+                height: 130px;
+            }
+
+            .bn-title {
+                font-size: 26px;
+            }
+
+            .arabic {
+                font-size: 21px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .next {
+                padding: 11px 18px;
+                font-size: 13.5px;
+            }
+
+            .back {
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars">
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+    </div>
+
+    <div class="container">
+
+        <header class="topbar">
+            <div class="logo">☾ A LITTLE DUA FOR YOU</div>
+            <div class="step" id="step">01 / 12</div>
+        </header>
+
+        <main class="card">
+            <div class="content" id="content"></div>
+        </main>
+
+        <div class="navigation">
+            <button class="back" id="backBtn">← Back</button>
+            <button class="next" id="nextBtn">শুরু করি →</button>
+        </div>
+
+        <div class="progress-area">
+            <div class="progress">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            <span class="counter" id="counter">1 of 12</span>
+        </div>
+
+        <footer class="footer">
+            MADE WITH SINCERE DUAS & HEARTFELT WISHES
+        </footer>
+
+    </div>
+
+    <script>
+
+        // ======================================
+        // PERSONALIZE YOUR WEBSITE HERE
+        // ======================================
+
+        const FRIEND_NAME = "FORID(ভাই)";
+
+        // ======================================
+        // WEBSITE CONTENT
+        // ======================================
+
+const pages = [
+
+    // 01 - Intro: আল্লাহর পরিকল্পনা সর্বোত্তম & রূহের এক অদ্ভুত মিল
+    {
+        button: "শুরু করি →",
+        html: `
+            <p class="eyebrow">✦ A special reminder ✦</p>
+
+            <div style="margin: 12px 0 20px;">
+                <h2 class="bn-title" style="margin-bottom: 14px;">
+                    আল্লাহর পরিকল্পনা সর্বোত্তম
+                </h2>
+                <p class="translation" style="font-size: clamp(16px, 2.3vw, 19px); line-height: 1.9; max-width: 620px; margin: 0 auto;">
+                    জীবনের সবকিছু হয়তো আমাদের পরিকল্পনামতো হয় না,<br>
+                    কিন্তু আল্লাহর জ্ঞান ও প্রজ্ঞা সর্বোত্তম।
+                </p>
+            </div>
+
+            <div class="divider" style="margin: 26px auto; width: 85px;"></div>
+
+            <div style="margin: 20px 0 12px;">
+                <h2 class="bn-title" style="margin-bottom: 14px;">
+                    রূহের এক অদ্ভুত মিল
+                </h2>
+                <p class="translation" style="font-size: clamp(16px, 2.3vw, 19px); line-height: 1.9; max-width: 620px; margin: 0 auto;">
+                    "রূহসমূহের মধ্যে যাদের পারস্পরিক পরিচিতি রয়েছে,<br>
+                    তারা পরস্পরের সঙ্গে মিলিত হয়।"
+                </p>
+                <p class="reference" style="margin-top: 16px; font-weight: 500;">
+                    — সহিহ বুখারি ৩৩৩৬
+                </p>
+            </div>
+        `
+    },
+
+    // 02 - Opening: Quran + Hadith
+    {
+        button: "Next →",
+        html: `
+            <div class="moon"></div>
+
+            <p class="eyebrow">A little dua for you</p>
+
+            <p class="translation">
+                "নিশ্চয়ই কষ্টের সঙ্গেই স্বস্তি রয়েছে।"
+            </p>
+
+            <p class="reference">
+                — সূরা আশ-শারহ, ৯৪:৫–৬
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="description" style="font-size:15px;">
+                "মুমিনের ব্যাপারটি আশ্চর্যজনক! তার প্রতিটি
+                অবস্থাই তার জন্য কল্যাণকর। সুখকর কিছু পেলে
+                সে কৃতজ্ঞতা প্রকাশ করে, আর দুঃখ-কষ্টে আক্রান্ত
+                হলে ধৈর্য ধারণ করে—এটিও তার জন্য কল্যাণকর।"
+            </p>
+
+            <p class="reference">
+                — সহিহ মুসলিম, ২৯৯৯
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="friend-name">
+                প্রিয় বন্ধু ${FRIEND_NAME} ♡
+            </p>
+        `
+    },
+
+    // 02 - Personal Dua
+    {
+        button: "Next →",
+        html: `
+            <p class="eyebrow">A heartfelt dua</p>
+
+            <h2>May your life be filled with barakah.</h2>
+
+            <div class="divider"></div>
+
+            <p class="description">
+আল্লাহ তোমার জীবনের প্রতিটি মুহূর্তে বরকত দান করুন।
+তোমাকে সুস্থতা, মানসিক প্রশান্তি ও নেক হায়াত দান করুন।
+
+তোমার ঈমানকে আরও দৃঢ় করুন, আমলকে সুন্দর করুন
+এবং চরিত্রকে উত্তম করুন।
+
+তোমার হালাল রিজিকে বরকত দিন এবং দুনিয়া ও
+আখিরাতে সফলতা দান করুন।
+            </p>
+        `
+    },
+
+    // 03 - Gentle Reminder
+    {
+        button: "Next →",
+        html: `
+            <p class="eyebrow">A gentle reminder</p>
+
+            <h2>You are stronger than you think.</h2>
+
+            <div class="divider"></div>
+
+            <p class="description">
+জীবনে যত দুশ্চিন্তা, হতাশা কিংবা কঠিন পরিস্থিতিই আসুক,
+নিজের প্রতি সদয় থেকো।
+
+সব সমস্যার সমাধান একদিনে খুঁজে পেতে হবে না।
+
+একটু সময় নাও, নিজের যত্ন নাও, প্রয়োজনে
+বিশ্বাসের মানুষদের সঙ্গে কথা বলো।
+
+মনে রেখো, তোমার আজকের কঠিন সময়
+তোমার পুরো জীবনের গল্প নয়।
+            </p>
+        `
+    },
+
+    // 04 - Surah Al-Baqarah 2:286
+    {
+        button: "Next →",
+        html: `
+            <p class="eyebrow">A reminder of Allah's mercy</p>
+
+            <h2>আল্লাহ তোমার সাধ্যের বাইরে বোঝা দেন না</h2>
+
+            <div class="arabic">
+                لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا
+            </div>
+
+            <p class="translation">
+                "আল্লাহ কোনো ব্যক্তির ওপর তার সাধ্যের বাইরে
+                দায়িত্ব চাপিয়ে দেন না।"
+            </p>
+
+            <p class="reference">
+                SURAH AL-BAQARAH · 2:286
+            </p>
+
+            <div class="message">
+                কখনো মনে হতে পারে সবকিছু সামলানো অসম্ভব।
+                একটু থামো, প্রয়োজন হলে সাহায্য চাও।
+                একবারে একটি করে সমস্যার মোকাবিলা করো।
+            </div>
+        `
+    },
+
+    // 05 - Surah Al-Baqarah 2:153 (NEW)
+    {
+        button: "Next →",
+        html: `
+            <p class="eyebrow">Patience and prayer</p>
+
+            <h2>ধৈর্য ধরো, আল্লাহ তোমার সঙ্গে আছেন</h2>
+
+            <div class="arabic">
+                يَا أَيُّهَا الَّذِينَ آمَنُوا
+                اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ
+                إِنَّ اللَّهَ مَعَ الصَّابِرِينَ
+            </div>
+
+            <p class="translation">
+                "হে মুমিনগণ! তোমরা ধৈর্য ও সালাতের
+                মাধ্যমে সাহায্য প্রার্থনা করো।
+                নিশ্চয়ই আল্লাহ ধৈর্যশীলদের সঙ্গে আছেন।"
+            </p>
+
+            <p class="reference">
+                SURAH AL-BAQARAH · 2:153
+            </p>
+
+            <div class="message">
+                কঠিন সময়ে ধৈর্য ধরো, নামাজের মাধ্যমে
+                আল্লাহর কাছে সাহায্য চাও।
+            </div>
+        `
+    },
+
+    // 06 - Surah Ar-Ra'd 13:28
+    {
+        button: "Next →",
+        html: `
+            <p class="eyebrow">Peace for your heart</p>
+
+            <h2>আল্লাহর স্মরণেই অন্তরের প্রশান্তি</h2>
+
+            <div class="arabic">
+                أَلَا بِذِكْرِ اللَّهِ
+                تَطْمَئِنُّ الْقُلُوبُ
+            </div>
+
+            <p class="translation">
+                "জেনে রেখো, আল্লাহর স্মরণেই
+                অন্তরসমূহ প্রশান্তি লাভ করে।"
+            </p>
+
+            <p class="reference">
+                SURAH AR-RA'D · 13:28
+            </p>
+
+            <div class="message">
+                যখন মন অস্থির হবে, আল্লাহর কাছে ফিরে যেয়ো।
+                নামাজ, দোয়া ও কুরআন তিলাওয়াতের মাধ্যমে
+                অন্তরকে প্রশান্ত করার চেষ্টা করো।
+            </div>
+        `
+    },
+
+    // 07 - Surah At-Talaq 65:3 (NEW)
+    {
+        button: "Next →",
+        html: `
+            <p class="eyebrow">Put your trust in Allah</p>
+
+            <h2>আল্লাহর ওপর ভরসা রাখো</h2>
+
+            <div class="arabic">
+                وَمَن يَتَوَكَّلْ عَلَى اللَّهِ
+                فَهُوَ حَسْبُهُ
+            </div>
+
+            <p class="translation">
+                "আর যে আল্লাহর ওপর ভরসা করে,
+                তার জন্য তিনিই যথেষ্ট।"
+            </p>
+
+            <p class="reference">
+                SURAH AT-TALAQ · 65:3
+            </p>
+
+            <div class="message">
+                নিজের সর্বোচ্চ চেষ্টা করে যাও।
+                ফলাফলের জন্য আল্লাহর ওপর ভরসা রাখো।
+            </div>
+        `
+    },
+
+    // 08 - Hadith about hardship (NEW)
+    {
+        button: "Next →",
+        html: `
+            <p class="eyebrow">A beautiful reminder</p>
+
+            <h2>কষ্টও কল্যাণের কারণ হতে পারে</h2>
+
+            <div class="divider"></div>
+
+            <p class="description">
+                "মুসলিমের ওপর যে ক্লান্তি, অসুস্থতা,
+                দুশ্চিন্তা, দুঃখ, কষ্ট বা উদ্বেগই আসুক—
+                এমনকি একটি কাঁটা বিদ্ধ হলেও—
+                আল্লাহ তার মাধ্যমে তার কিছু গুনাহ
+                মাফ করে দেন।"
+            </p>
+
+            <p class="reference">
+                SAHIH AL-BUKHARI · 5641–5642
+            </p>
+
+            <p class="reference">
+                SAHIH MUSLIM · 2573
+            </p>
+
+            <div class="message">
+                তাই কঠিন সময়েও আল্লাহর রহমতের আশা
+                হারিয়ে ফেলো না।
+            </div>
+        `
+    },
+
+    // 09 - Hasbunallahu wa ni'mal wakeel
+    {
+        button: "Next →",
+        html: `
+            <p class="eyebrow">Trust in Allah</p>
+
+            <h2>Hasbunallahu wa ni'mal wakeel</h2>
+
+            <div class="arabic">
+                حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ
+            </div>
+
+            <p class="translation">
+                "আমাদের জন্য আল্লাহই যথেষ্ট
+                এবং তিনিই সর্বোত্তম কর্মবিধায়ক।"
+            </p>
+
+            <p class="reference">
+                SURAH AL-IMRAN · 3:173
+            </p>
+
+            <div class="message">
+                নিজের সর্বোচ্চ চেষ্টা করো,
+                তারপর আল্লাহর ওপর ভরসা রাখো।
+                তাঁর কাছে সাহায্য চাওয়ার দরজা সবসময় খোলা।
+            </div>
+        `
+    },
+
+    // 11 - Photo Memories Gallery
+    {
+        button: "শেষ কথাটি পড়ো →",
+        html: `
+            <p class="eyebrow" style="margin-bottom: 8px;">A few beautiful memories</p>
+
+            <h2 style="margin-bottom: 6px;">কিছু সুন্দর মুহূর্ত ♡</h2>
+
+            <p class="description" style="font-size:14.5px; margin-top:4px; margin-bottom:10px;">
+                কিছু মুহূর্ত, কিছু স্মৃতি—যেগুলো সবসময় সুন্দর হয়ে থাকুক।
+            </p>
+
+            <div class="photo-gallery">
+
+                <div class="photo-item" onclick="openLightbox('images/photo-1.jpg', 'সুন্দর স্মৃতি ১')">
+                    <img src="images/photo-1.jpg"
+                         alt="Memory 1"
+                         loading="lazy"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder">Photo 1</div>
+                </div>
+
+                <div class="photo-item" onclick="openLightbox('images/photo-2.jpg', 'সুন্দর স্মৃতি ২')">
+                    <img src="images/photo-2.jpg"
+                         alt="Memory 2"
+                         loading="lazy"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder">Photo 2</div>
+                </div>
+
+                <div class="photo-item" onclick="openLightbox('images/photo-4.jpg', 'সুন্দর স্মৃতি ৩')">
+                    <img src="images/photo-4.jpg"
+                         alt="Memory 4"
+                         loading="lazy"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder">Photo 4</div>
+                </div>
+
+                <div class="photo-item" onclick="openLightbox('images/photo-5.jpg', 'সুন্দর স্মৃতি ৪')">
+                    <img src="images/photo-5.jpg"
+                         alt="Memory 5"
+                         loading="lazy"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder">Photo 5</div>
+                </div>
+
+                <div class="photo-item" onclick="openLightbox('images/photo-3.jpg', 'সুন্দর স্মৃতি ৫')">
+                    <img src="images/photo-3.jpg"
+                         alt="Memory 3"
+                         loading="lazy"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder">Photo 3</div>
+                </div>
+
+            </div>
+        `
+    },
+
+    // 12 - Final Dua
+    {
+        button: "আবার শুরু থেকে দেখো ↺",
+        html: `
+            <p class="eyebrow">Until the next chapter</p>
+
+            <h2>One final prayer for you.</h2>
+
+            <div class="divider"></div>
+
+            <p style="
+                font-family:'Cormorant Garamond',serif;
+                font-size:clamp(25px,4vw,35px);
+                line-height:1.6;
+                color:var(--gold-light);
+            ">
+                May Allah always guide you,
+                protect you, and fill your life
+                with endless blessings.
+                Ameen.
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="description">
+                আল্লাহ তোমার অন্তরে প্রশান্তি দিন,
+                সব দুশ্চিন্তা ও কষ্ট সহজ করে দিন।
+
+                তোমার জন্য উত্তম পথ খুলে দিন
+                এবং দুনিয়া ও আখিরাতে সফলতা দান করুন।
+            </p>
+
+            <div class="divider"></div>
+
+            <p style="color:var(--gold)">
+                With sincere duas, always. ♡
+            </p>
+        `
+    }
+
+];
+
+
+        // ======================================
+        // NAVIGATION SYSTEM
+        // ======================================
+
+        let currentPage = 0;
+
+        const content = document.getElementById("content");
+        const nextBtn = document.getElementById("nextBtn");
+        const backBtn = document.getElementById("backBtn");
+
+        function showPage() {
+
+            const page = pages[currentPage];
+
+            content.style.animation = "none";
+            content.offsetHeight;
+            content.style.animation = "fadeIn .6s ease";
+
+            content.innerHTML = page.html;
+
+            document.getElementById("step").innerText =
+                `${String(currentPage + 1).padStart(2, "0")} / ${String(pages.length).padStart(2, "0")}`;
+
+            document.getElementById("counter").innerText =
+                `${currentPage + 1} of ${pages.length}`;
+
+            document.getElementById("progress").style.width =
+                `${((currentPage + 1) / pages.length) * 100}%`;
+
+            nextBtn.innerText = page.button;
+
+            backBtn.disabled = currentPage === 0;
+        }
+
+        nextBtn.addEventListener("click", function () {
+
+            if (currentPage === pages.length - 1) {
+                currentPage = 0;
+            } else {
+                currentPage++;
+            }
+
+            showPage();
+
+        });
+
+        backBtn.addEventListener("click", function () {
+
+            if (currentPage > 0) {
+                currentPage--;
+                showPage();
+            }
+
+        });
+
+        // Keyboard navigation
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "ArrowRight") {
+                nextBtn.click();
+            }
+
+            if (event.key === "ArrowLeft") {
+                backBtn.click();
+            }
+
+        });
+
+        // Initial page
+
+        showPage();
+
+    </script>
+
+    <!-- Lightbox Modal for Full Image View -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close">✕</button>
+            <img id="lightbox-img" src="" alt="Full view">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+</body>
+
+</html>
